@@ -35,7 +35,7 @@ function makeWeatherData(forecast){
     var tickArray = []
     var maxPrecip = 0.3
     // for(var i = 0; i<=24; i++){
-    for(var i = 0; i<=18; i++){
+    for(var i = 0; i<=24; i++){
         var summary = ""
         var icon = ""
         var tempAnnot = null
@@ -154,11 +154,12 @@ function makeWeatherData(forecast){
         //    dateStringArr.push(Utilities.formatDate(new Date(hourly[i].time*1000), "America/New_York", "hh a"))
     }
      // tempArr[lowestTemp[0]][8] = hourly[lowestTemp[0]].temperature+"°F"+"\\n\\n"
-    tempArr[lowestTemp[0]][8] = hourly[lowestTemp[0]].temperature
+    tempArr[lowestTemp[0]][8] = hourly[lowestTemp[0]].apparentTemperature
+
     // tempArr[lowestTemp[0]][8] = tempArr[lowestTemp[0]][1]+""
     // tempArr[lowestTemp[0]][5] = "00|00|255"
     
-    tempArr[highestTemp[0]][9] = hourly[highestTemp[0]].temperature
+    tempArr[highestTemp[0]][9] =hourly[highestTemp[0]].apparentTemperature
     // tempArr[highestTemp[0]][9] = hourly[highestTemp[0]].temperature+"°F"+"\\n\\n"
     // tempArr[highestTemp[0]][8] = tempArr[highestTemp[0]][1]+""
     // tempArr[highestTemp[0]][5] = "255|127|80"
