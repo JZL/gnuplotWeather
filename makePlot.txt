@@ -12,7 +12,7 @@ unset colorbox
 set bmargin 4
 set lmargin 4
 set rmargin 3
-set tmargin 0.5
+set tmargin 2
 # set ylabel offset 5,0
 # set xtics 0
 # set xtics -20.2,10
@@ -42,14 +42,15 @@ rgb(a,r,g,b) = 16777216* int(a)+65536 * int(r) + 256 * int(g) + int(b)
 
 # set obj  3 rect from -.1,-.1 to  10,10 fs solid fc rgb "" front
 # 0.5 offset bc if not, empty emoji leaves white spaces bc boxed in
+set label front "`head -1 data`" at graph .5,1.05 center
+set key autotitle columnhead
+# set label front columnheader at graph center .5,.5
 plot 'data' u (column(0)):(2):(rgb((255-$4*255), $6, $7, $8))  w boxes  axes x1y2 title "Precip" lc rgb variable fill solid noborder, \
      'data' u (column(0)):5             w filledcurve x2  axes x1y2 fc "#ffffff" lc "green" notitle, \
      'data' u (column(0)):3:3:xtic(2)   w line title "Apparent Temp °F" ls 1 lc pal, \
      'data' u (column(0)):3:10          w labels boxed offset 0,1.5 notitle, \
-     'data' u (column(0)):3:9           w labels offset 0,.5 notitle, \
+     'data' u (column(0)):3:9           w labels font ",25" offset 0,.5 notitle, \
      'data' u (column(0)):3:11          w labels tc "blue" center boxed offset 0,-1.5 notitle , \
      'data' u (column(0)):3:12          w labels tc "red" center boxed offset 0,-1 notitle , \
 # plot 'data' u 1:4:2:(rgb($5, $6, $7)) w boxes title "test" lc rgb variable axes x1y2
      # 'data' u 1:4:(rgb($5, $6, $7)) with filledcurves x1 fillcolor rgbcolor variable title "precip" axes x1y2 
-
-# 'data' u (column(0)):3:xtic(2) with lines title "🌌β,α☽" */
