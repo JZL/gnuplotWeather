@@ -3,7 +3,7 @@
 set encoding utf8
 set output 'allGraphs.png'
 set datafile separator "|"
-set key opaque
+#set key opaque
 unset key
 set cbrange [-20:110]
 set palette define (-30 "#ff00ff", -10 "#9e00ff", 0 "#0000ff", 10 "#007eff", 20 "#00ccff", 30 "#05f7f7", 40 "#7fff00", 50 "#f7f705", 60 "#ffcc00", 70 "#ff9900", 80 "#ff4f00", 90 "#cc0000", 100 "#a90303", 110 "#ba3232")
