@@ -2,22 +2,22 @@ var https = require("https");
 var fs = require('fs');
 
 function getForecast(){
- // https.get("https://api.forecast.io/forecast/2e96d21ace402e85da164cf6d24869c7/39.9068405,-75.357837", function(res) { 
- //     var body = '';
- //     res.on('data', function (d) {
- //         body += d; 
- //     });
- //     res.on('end', function () {
- //         try{
- //             var json = JSON.parse(body);
- //         }catch(e){
- //             console.log(body)
- //             throw "Couldn't parse JSON: "+body;
- //         }
- //         makeWeatherData(json);
- //     });
-    fs.readFile("dummy_data", "utf8", function(err, data) {
-         makeWeatherData(JSON.parse(data))
+ https.get("https://api.forecast.io/forecast/2e96d21ace402e85da164cf6d24869c7/39.9068405,-75.357837", function(res) { 
+     var body = '';
+     res.on('data', function (d) {
+         body += d; 
+     });
+     res.on('end', function () {
+         try{
+             var json = JSON.parse(body);
+         }catch(e){
+             console.log(body)
+             throw "Couldn't parse JSON: "+body;
+         }
+         makeWeatherData(json);
+  });
+    //fs.readFile("dummy_data", "utf8", function(err, data) {
+         //makeWeatherData(JSON.parse(data))
     });// });
 }
 

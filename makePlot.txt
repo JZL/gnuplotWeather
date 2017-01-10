@@ -3,7 +3,6 @@
 set encoding utf8
 set output 'allGraphs.png'
 set datafile separator "|"
-
 set key opaque
 set cbrange [-20:110]
 set palette define (-30 "#ff00ff", -10 "#9e00ff", 0 "#0000ff", 10 "#007eff", 20 "#00ccff", 30 "#05f7f7", 40 "#7fff00", 50 "#f7f705", 60 "#ffcc00", 70 "#ff9900", 80 "#ff4f00", 90 "#cc0000", 100 "#a90303", 110 "#ba3232")
@@ -45,12 +44,12 @@ rgb(a,r,g,b) = 16777216* int(a)+65536 * int(r) + 256 * int(g) + int(b)
 set label front "`head -1 data`" at graph .5,1.05 center
 set key autotitle columnhead
 # set label front columnheader at graph center .5,.5
-plot 'data' u (column(0)):(2):(rgb((255-$4*255), $6, $7, $8))  w boxes  axes x1y2 title "Precip" lc rgb variable fill solid noborder, \
-     'data' u (column(0)):5             w filledcurve x2  axes x1y2 fc "#ffffff" lc "green" notitle, \
-     'data' u (column(0)):3:3:xtic(2)   w line title "Apparent Temp °F" ls 1 lc pal, \
-     'data' u (column(0)):3:10          w labels boxed offset 0,1.5 notitle, \
-     'data' u (column(0)):3:9           w labels font ",25" offset 0,.5 notitle, \
-     'data' u (column(0)):3:11          w labels tc "blue" center boxed offset 0,-1.5 notitle , \
-     'data' u (column(0)):3:12          w labels tc "red" center boxed offset 0,-1 notitle , \
-# plot 'data' u 1:4:2:(rgb($5, $6, $7)) w boxes title "test" lc rgb variable axes x1y2
+plot './data' u (column(0)):(2):(rgb((255-$4*255), $6, $7, $8))  w boxes  axes x1y2 title "Precip" lc rgb variable fill solid noborder, \
+     './data' u (column(0)):5             w filledcurve x2  axes x1y2 fc "#ffffff" lc "green" notitle, \
+     './data' u (column(0)):3:3:xtic(2)   w line title "Apparent Temp °F" ls 1 lc pal, \
+     './data' u (column(0)):3:10          w labels boxed offset 0,1.5 notitle, \
+     './data' u (column(0)):3:9           w labels font ",25" offset 0,.5 notitle, \
+     './data' u (column(0)):3:11          w labels tc "blue" center boxed offset 0,-1.5 notitle , \
+     './data' u (column(0)):3:12          w labels tc "red" center boxed offset 0,-1 notitle , \
+# plot '/home/20/jzl/gnuplotWeather/data' u 1:4:2:(rgb($5, $6, $7)) w boxes title "test" lc rgb variable axes x1y2
      # 'data' u 1:4:(rgb($5, $6, $7)) with filledcurves x1 fillcolor rgbcolor variable title "precip" axes x1y2 
