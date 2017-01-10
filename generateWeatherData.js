@@ -3,7 +3,7 @@ var fs = require('fs');
 
 function getForecast(){
     var dummy = false
-    dummy = true
+//    dummy = true
     if(!dummy){
         https.get("https://api.forecast.io/forecast/2e96d21ace402e85da164cf6d24869c7/39.9068405,-75.357837", function(res) { 
             var body = '';
