@@ -77,6 +77,7 @@ function getForecast(){
                     break;
                 case "fog":
                     icon = "🌫";
+                    icon = "🌁";
                     break;
                 case "cloudy":
                     icon = "☁️";
@@ -176,8 +177,8 @@ function getForecast(){
         for(var i in tempArr){
             result+=tempArr[i].join("|")+"\n"
         }
-        result = forecast.hourly.summary+"\\n"+forecast.daily.summary+"\n"+result
-        fs.writeFile("./data", result, function(err) {
+        result = (new Date().toString())+"\\n"+forecast.hourly.summary+"\\n"+forecast.daily.summary+"\n"+result
+        fs.writeFile("/srv/org/fbMsgr/gnuplotWeather/data", result, function(err) {
             if(err) {
                 return console.log(err);
             }
