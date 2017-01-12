@@ -4,7 +4,6 @@ set encoding utf8
 set output 'allGraphs.png'
 set datafile separator "|"
 #set key opaque
-unset key
 set cbrange [-20:110]
 set palette define (-30 "#ff00ff", -10 "#9e00ff", 0 "#0000ff", 10 "#007eff", 20 "#00ccff", 30 "#05f7f7", 40 "#7fff00", 50 "#f7f705", 60 "#ffcc00", 70 "#ff9900", 80 "#ff4f00", 90 "#cc0000", 100 "#a90303", 110 "#ba3232")
 unset colorbox
@@ -47,6 +46,7 @@ rgb(a,r,g,b) = 16777216* int(a)+65536 * int(r) + 256 * int(g) + int(b)
 # 0.5 offset bc if not, empty emoji leaves white spaces bc boxed in
 set label front "`head -1 data`" at graph .5,1.05 center
 set key autotitle columnhead
+unset key
 # set label front columnheader at graph center .5,.5
 plot './data' u (column(0)):(2):(rgb((255-$4*255), $6, $7, $8))  w boxes  axes x1y2 title "Precip" lc rgb variable fill solid noborder, \
      './data' u (column(0)):5             w filledcurve x2  axes x1y2 fc "#ffffff"  notitle, \
